@@ -1,0 +1,10 @@
+.i-d {
+	width: 250px;
+	position: relative;
+	left: 25%;
+}
+@media screen and (max-width: 480px) {
+	.i-d {
+		left: 15%;
+	}
+}

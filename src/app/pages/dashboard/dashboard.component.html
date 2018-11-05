@@ -1,0 +1,346 @@
+
+<button class="btn btn-danger pull-right p-relative new-goal" (click)="createGoal();">+ New Goal</button>
+<div class="row"><div class="col-md-12 p-20"></div></div>
+<div class="row">
+  <!-- column -->
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-body">
+                <h2 class="card-title text-uppercase m-b-40">Net-Worth</h2>
+                <mat-tab-group class="demo-tab-group" (selectedTabChange)="getNetWorth($event)">
+                  <mat-tab *ngFor="let tab of tabs">
+                    <div class="m-t-40">
+                        <span class="h1 total-price">${{net_worth.total | number}}</span>
+                        <div class="font-20 m-t-30"><i class="fa {{net_worth_icon}} {{net_worth_icon_color}} p-r-10"></i>{{net_worth.pct | number}}%</div>
+                    </div>
+                    <div id="{{tab.id}}" class="net-worth-chart"></div>
+                    <ng-template mat-tab-label>
+                      {{tab.value}}
+                    </ng-template>
+                  </mat-tab>
+                </mat-tab-group>
+            </div>
+        </div>
+    </div>
+    <!-- column -->
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-body">
+                <h2 class="card-title text-uppercase">Spending</h2>
+                <div echarts [options]="spending_data.chart" class="spending-chart"></div>
+                <div class="text-right">
+                  <span class="h1 total-price">${{spending_data.total_budget | number}}</span>
+                  <div class="font-20 m-t-30"><i class="fa {{spending_icon}} {{spending_icon_color}} p-r-10"></i>{{spending_data.pct | number}}%</div>
+                </div>
+                <div class="top-progress-control m-b-30">
+                    <h5 class="m-t-10">Budgets May</h5>
+                    <div class="progress" *ngIf="spending_today_status; else elseProgressBar">
+                        <div class="progress-bar wow animated progress-animated {{spending_progress_status}}" [ngStyle]="{ 'width': spending_data.today_pct + '%' }" role="progressbar"></div>
+                        <div class="progress-bar b-r" role="progressbar" [ngStyle]="{ 'width': spending_line_value + '%'}"></div>
+                    </div>
+                    <ng-template #elseProgressBar>
+                        <div class="progress">
+                            <div class="progress-bar wow animated progress-animated b-r {{spending_progress_status}}" style="width: 50%" role="progressbar"></div>
+                            <div class="progress-bar {{spending_progress_status}}" role="progressbar" [ngStyle]="{ 'width': spending_line_value + '%'}"></div>
+                        </div>
+                    </ng-template>
+                    <div class="text-uppercase text-center m-t-10">Today</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-body panel-group" id="accordion">
+                <div class="card-title b-b"><h1>My Goals</h1></div>
+                <div class="row panel panel-default">
+                    <div class="col-md-7">
+                        <div class="panel-heading" (click)="changeIcon_1()">
+                            <a data-toggle="collapse" href="#collapse1" data-parent="#accordion">
+                                <i class="mdi display-6 vm" [ngClass]="{'mdi-chevron-down': openPanel_1, 'mdi-chevron-right': !openPanel_1}" aria-hidden="true"></i>
+                            </a>&nbsp;&nbsp;
+                            <span class="text-black">Overview</span>
+                            <span class="pull-right text-uppercase vm p-t-10">Total Balance</span>
+                        </div>
+                        <div class="text-right m-b-20">
+                            <i class="mdi mdi-swap-horizontal text-primary"></i>
+                            <span class="text-black">$25,678.39</span>
+                        </div>
+                        <div class="be-progress-control m-t-40">
+                            <div class="progress">
+                                <div class="progress-bar bg-success wow animated progress-animated" style="width: 65%; background-color: #06d79c" role="progressbar"> <span class="sr-only">65% Complete</span> </div>
+                            </div>
+                            <span class="pull-right">65%</span>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="stats-row">
+                            <div class="stat-item">
+                                <h6>Overall Growth</h6>
+                                <b>80.40%</b></div>
+                            <div class="stat-item">
+                                <h6>Montly</h6>
+                                <b>15.40%</b></div>
+                            <div class="stat-item">
+                                <h6>Day</h6>
+                                <b>5.50%</b></div>
+                        </div>
+                        <div class="sparkline8"></div>
+                    </div>
+                    <div class="col-md-1 card-content text-right text-success m-t-40">
+                        <label class="switch">
+                          <input type="checkbox">
+                          <span class="slider"></span>
+                        </label>
+                    </div>
+                    <div class="col-md-1">
+                        <div class="btn-group ml-auto m-t-10 pull-right">
+                            <a href="JavaScript:void(0)" class="fa link" [ngClass]="{'fa-cog': openPanel_1, 'fa-ellipsis-h': !openPanel_1}" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></a>
+                            <div class="dropdown-menu dropdown-menu-right" x-placement="bottom-end" style="position: absolute; transform: translate3d(-181px, 32px, 0px); top: 0px; left: 0px; will-change: transform;">
+                                <a class="dropdown-item" href="javascript:void(0)">Edit</a>
+                                <a class="dropdown-item" href="javascript:void(0)">Delete...</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="collapse1" class="panel-collapse collapse">
+                    <donut-section sectionTitle="chartdiv"></donut-section>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-body panel-group" id="accordion">
+                <div class="row panel panel-default">
+                    <div class="col-md-7">
+                        <div class="panel-heading" (click)="changeIcon_2()">
+                            <a data-toggle="collapse" href="#collapse2" data-parent="#accordion">
+                                <i class="mdi display-6 vm" [ngClass]="{'mdi-chevron-down': openPanel_2, 'mdi-chevron-right': !openPanel_2}" aria-hidden="true"></i>
+                            </a>&nbsp;&nbsp;
+                            <span class="text-black">Home Improvements</span>
+                            <span class="pull-right text-uppercase text-black m-t-10">$13,878.33</span>
+                        </div>
+                        <div class="m-b-20 m-l-30 p-l-30">
+                            <button class="btn btn-rounded btn-warning mb-btn-1">On-Track</button>
+                            <span class="pull-right"><span class="text-black">10.8%</span> returns since May 2014</span>
+                        </div>
+                        <div class="be-progress-control m-t-40">
+                            <div class="progress">
+                                <div class="progress-bar bg-warning wow animated progress-animated" style="width: 45%;" role="progressbar"> <span class="sr-only">45% Complete</span> </div>
+                            </div>
+                            <span class="pull-right">45%</span>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="stats-row">
+                            <div class="stat-item">
+                                <h6>Overall Growth</h6>
+                                <b>80.40%</b></div>
+                            <div class="stat-item">
+                                <h6>Montly</h6>
+                                <b>15.40%</b></div>
+                            <div class="stat-item">
+                                <h6>Day</h6>
+                                <b>5.50%</b></div>
+                        </div>
+                        <div class="sparkline8"></div>
+                    </div>
+                    <div class="col-md-1 card-content text-right text-success m-t-40">
+                        <label class="switch">
+                          <input type="checkbox" checked>
+                          <span class="slider"></span>
+                        </label>
+                    </div>
+                    <div class="col-md-1">
+                        <div class="btn-group ml-auto m-t-10 pull-right">
+                            <a href="JavaScript:void(0)" class="fa link" [ngClass]="{'fa-cog': openPanel_2, 'fa-ellipsis-h': !openPanel_2}" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></a>
+                            <div class="dropdown-menu dropdown-menu-right" x-placement="bottom-end" style="position: absolute; transform: translate3d(-181px, 32px, 0px); top: 0px; left: 0px; will-change: transform;">
+                                <a class="dropdown-item" href="javascript:void(0)">Edit</a>
+                                <a class="dropdown-item" href="javascript:void(0)">Delete...</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="collapse2" class="panel-collapse collapse">
+                    <donut-section sectionTitle="chart2div"></donut-section>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-body panel-group" id="accordion">
+                <div class="row panel panel-default">
+                    <div class="col-md-7">
+                        <div class="panel-heading" (click)="changeIcon_3()">
+                            <a data-toggle="collapse" href="#collapse3" data-parent="#accordion">
+                                <i class="mdi display-6 vm" [ngClass]="{'mdi-chevron-down': openPanel_3, 'mdi-chevron-right': !openPanel_3}" aria-hidden="true"></i>
+                            </a>&nbsp;&nbsp;
+                            <span class="text-black">New Car</span>
+                            <span class="pull-right text-uppercase text-black m-t-10">$11,299.33</span>
+                        </div>
+                        <div class="m-b-20 m-l-30 p-l-30">
+                            <button class="btn btn-rounded btn-success mb-btn-1">Off Track</button>
+                            <span class="pull-right"><span class="text-black">9.2%</span> returns since October 2014</span>
+                        </div>
+                        <div class="be-progress-control m-t-40">
+                            <div class="progress">
+                                <div class="progress-bar bg-success wow animated progress-animated" style="width: 65%;" role="progressbar"> <span class="sr-only">65% Complete</span> </div>
+                            </div>
+                            <span class="pull-right">65%</span>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="stats-row">
+                            <div class="stat-item">
+                                <h6>Overall Growth</h6>
+                                <b>80.40%</b></div>
+                            <div class="stat-item">
+                                <h6>Montly</h6>
+                                <b>15.40%</b></div>
+                            <div class="stat-item">
+                                <h6>Day</h6>
+                                <b>5.50%</b></div>
+                        </div>
+                        <div class="sparkline8"></div>
+                    </div>
+                    <div class="col-md-1 card-content text-right text-success m-t-40">
+                        <label class="switch">
+                          <input type="checkbox" checked>
+                          <span class="slider"></span>
+                        </label>
+                    </div>
+                    <div class="col-md-1">
+                        <div class="btn-group ml-auto m-t-10 pull-right">
+                            <a href="JavaScript:void(0)" class="fa link" [ngClass]="{'fa-cog': openPanel_3, 'fa-ellipsis-h': !openPanel_3}" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></a>
+                            <div class="dropdown-menu dropdown-menu-right" x-placement="bottom-end" style="position: absolute; transform: translate3d(-181px, 32px, 0px); top: 0px; left: 0px; will-change: transform;">
+                                <a class="dropdown-item" href="javascript:void(0)">Edit</a>
+                                <a class="dropdown-item" href="javascript:void(0)">Delete...</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="collapse3" class="panel-collapse collapse">
+                    <donut-section sectionTitle="chart3div"></donut-section>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-body panel-group" id="accordion">
+                <div class="row panel panel-default">
+                    <div class="col-md-7">
+                        <div class="panel-heading pull-left" (click)="changeIcon_4()">
+                            <a data-toggle="collapse" href="#collapse4" data-parent="#accordion">
+                                <i class="mdi display-6 vm" [ngClass]="{'mdi-chevron-down': openPanel_4, 'mdi-chevron-right': !openPanel_4}" aria-hidden="true"></i>
+                            </a>&nbsp;&nbsp;
+                            <span class="text-black">Vacation</span>
+                        </div>
+                        <div class="text-right m-t-10">
+                            <i class="mdi mdi-swap-horizontal text-primary"></i>
+                            <span class="text-uppercase text-black">$500.00</span>
+                        </div>
+                        <div class="m-t-20 m-l-30 p-l-30">
+                            <button class="btn btn-rounded btn-outline-success text-uppercase mb-btn-2">On Track</button>
+                            <span class="pull-right mb-text-right"><span class="text-black">0.0%</span> returns since September 2014</span>
+                        </div>
+                    </div>
+                    <div class="col-md-3 m-t-20 mb-text-right">
+                        <div class="text-primary p-relative col-xlg-push-6">
+                            <span class="text-uppercase">Bonds</span>
+                        </div>
+                        <div class="text-primary p-relative col-xlg-push-6">73%</div>
+                    </div>
+                    <div class="col-md-1 card-content text-right text-success m-t-20">
+                        <label class="switch">
+                          <input type="checkbox">
+                          <span class="slider"></span>
+                        </label>
+                    </div>
+                    <div class="col-md-1">
+                        <div class="btn-group ml-auto m-t-10 pull-right">
+                            <a href="JavaScript:void(0)" class="fa link" [ngClass]="{'fa-cog': openPanel_4, 'fa-ellipsis-h': !openPanel_4}" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></a>
+                            <div class="dropdown-menu dropdown-menu-right" x-placement="bottom-end" style="position: absolute; transform: translate3d(-181px, 32px, 0px); top: 0px; left: 0px; will-change: transform;">
+                                <a class="dropdown-item" href="javascript:void(0)">Edit</a>
+                                <a class="dropdown-item" href="javascript:void(0)">Delete...</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="collapse4" class="panel-collapse collapse">
+                    <donut-section sectionTitle="chart4div"></donut-section>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-body panel-group" id="accordion">
+                <div class="row panel panel-default">
+                    <div class="col-md-7">
+                        <div class="panel-heading" (click)="changeIcon_5()">
+                            <a data-toggle="collapse" href="#collapse5" data-parent="#accordion">
+                                <i class="mdi display-6 vm" [ngClass]="{'mdi-chevron-down': openPanel_5, 'mdi-chevron-right': !openPanel_5}" aria-hidden="true"></i>
+                            </a>&nbsp;&nbsp;
+                            <span class="text-black">Traditional IRA</span>&nbsp;&nbsp;
+                            <button class="btn btn-outline-primary">Edit plan</button>
+                            <span class="pull-right text-uppercase m-t-10">Current Balance</span>
+                            <div class="text-right m-t-40">
+                                <span class="text-black m-b-40 p-b-30">$91,118.25</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-5">
+                        <div class="btn-group ml-auto m-t-10 pull-right">
+                            <a href="JavaScript:void(0)" class="fa link" [ngClass]="{'fa-cog': openPanel_5, 'fa-ellipsis-h': !openPanel_5}" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></a>
+                            <div class="dropdown-menu dropdown-menu-right" x-placement="bottom-end" style="position: absolute; transform: translate3d(-181px, 32px, 0px); top: 0px; left: 0px; will-change: transform;">
+                                <a class="dropdown-item" href="javascript:void(0)">Edit</a>
+                                <a class="dropdown-item" href="javascript:void(0)">Delete...</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="collapse5" class="panel-collapse collapse">
+                    <donut-section sectionTitle="chart5div"></donut-section>
+                </div>
+                <div>
+                    <div class="col-md-7">
+                        <div class="text-black m-b-40">
+                            <p>
+                                Time-weighted return <i class="mdi mdi-help-circle"></i>
+                                <span class="pull-right">0.0%</span>
+                            </p>
+                        </div>
+                        <div class="m-t-20">
+                            <i class="mdi mdi-calendar-plus"></i> Auto Deposit: <span class="text-black">Off</span>
+                        </div>
+                    </div>
+                    <div class="col-md-5">
+                        <div class="text-black">
+                            <p>
+                                Stocks<span class="pull-right">$82,004.85</span>
+                            </p>
+                        </div>
+                        <div>
+                            <p class="text-primary">
+                                <b>Change allocation<span class="pull-right">Portfolio details</span></b>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

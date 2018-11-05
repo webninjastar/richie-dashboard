@@ -1,0 +1,38 @@
+<div class="card">
+    <div class="card-body pull-left">
+        <img src="./assets/images/login.png">
+        <div class="login-form">
+            <h2>Create an account</h2>
+            <form class="form" name="form" (ngSubmit)="f.form.valid && signup()" #f="ngForm" novalidate>
+                <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !first_name.valid }">
+                    <input type="text" class="form-control" id="first_name" placeholder="First name" name="first_name" [(ngModel)]="model.first_name" #first_name="ngModel" required />
+                    <div *ngIf="f.submitted && !first_name.valid" class="font-12 text-danger">First name is required</div>
+                </div>
+                <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !last_name.valid }">
+                    <input type="text" class="form-control" id="last_name" placeholder="Last name" name="last_name" [(ngModel)]="model.last_name" #last_name="ngModel" required />
+                    <div *ngIf="f.submitted && !last_name.valid" class="font-12 text-danger">Last name is required</div>
+                </div>
+                <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !email.valid }">
+                    <input type="email" class="form-control" id="email" placeholder="Email" name="email" [(ngModel)]="model.email" #email="ngModel" pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$" required />
+                    <div *ngIf="f.submitted && !email.valid" class="font-12 text-danger">Email is required</div>
+                    <div [hidden]="!email.hasError('pattern')" class="text-danger">Invalid Email format </div>
+                </div>
+                <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !password.valid }">
+                    <input type="password" class="form-control" id="password" placeholder="password" name="password" [(ngModel)]="model.password" #password="ngModel" pattern="(?=^.{6,20}$)(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&amp;*()_+}{&quot;:;'?/&gt;.&lt;,])(?!.*\s).*$" required />
+                    <div *ngIf="f.submitted && !password.valid" class="font-12 text-danger">Password is required</div>
+                    <div [hidden]="!password.hasError('pattern')" class="text-danger font-12">You must enter at least 6 characters, at least one uppercase letter, one lowercase letter, one number and one special character</div>
+                </div>
+                <div class="form-group">
+                    <div class="checkbox checkbox-success">
+                        <input id="checkbox2" type="checkbox">
+                        <label for="checkbox2"> I agree to <a>RichieChat terms.</a></label>
+                    </div>
+                </div>
+                <div class="text-left form-group">
+                    <button class="btn btn-primary">Signup</button>
+                    <a [routerLink]="['/login']" class="btn btn-inverse">Cancel</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

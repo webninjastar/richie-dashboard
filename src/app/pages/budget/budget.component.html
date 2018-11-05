@@ -1,0 +1,118 @@
+<div class="row">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-2 text-left pull-left">
+                        <h1>Budget</h1>
+                    </div>
+                    <div class="col-md-8">
+                        <div class="monthPicker m-t-20 m-b-20">
+                            <div class="monthPicker-top">
+                                <button class="monthPicker-top-action btn btn-primary" (click)="onLastYear()">
+                                    <span class="fa fa-angle-left"></span>
+                                </button>
+                                <div class="monthPicker-top-current">
+                                    <span class="currentYear font-20">{{selectedMonth}} {{selectedYear}}</span>
+                                </div>
+                                <button class="monthPicker-top-action btn btn-primary" (click)="onNextYear()">
+                                    <span class="fa fa-angle-right"></span>
+                                </button>
+                            </div>
+                            <div class="monthPicker-body">
+                                <button *ngFor="let month of monthArray" id="{{month.id}}" class="monthPicker-body-month btn btn-brimary" (click)="onMonthChange($event.target.id)">{{month.val}}</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-2 text-right pull-right font-36">
+                        <span class="text-success">${{balances.left | number}}</span>&nbsp;Left<br>
+                        <span class="font-16">{{selectedMonth}} {{selectedYear}}</span>
+                    </div>
+                </div>
+                <div class="text-uppercase text-right font-16 today">Today</div>
+                <div class="row m-t-40">
+                    <div class="col-md-1 card-content text-right">
+                        <div class="text-right">Monitor</div>
+                        <label class="switch">
+                          <input type="checkbox" [checked]="balances.active_monitor">
+                          <span class="slider"></span>
+                        </label>
+                    </div>
+                    <div class="col-md-1 text-right font-bold font-18 vm">
+                        <span>Overall</span>
+                    </div>
+                    <div class="col-md-8">
+                        <span class="pull-right font-bold">${{balances.current_spending | number}} <span class="font-italic">of</span> ${{balances.budget | number}}</span>
+                        <div class="progress m-t-30">
+                            <div *ngIf="balances.pct_spending - balances.today_pct > 0;then defaultProBar else elseProBar">
+                            </div>
+                            <ng-template #defaultProBar>
+                                <div class="progress-bar wow animated progress-animated bg-danger today-border" role="progressbar" [ngStyle]="{ 'width': balances.today_pct + '%'}"></div>
+                                <div class="progress-bar wow animated progress-animated bg-danger" role="progressbar" [ngStyle]="{ 'width': balances.pct_spending - balances.today_pct + '%'}"></div>
+                            </ng-template>
+                            <ng-template #elseProBar>
+                                <div class="progress-bar wow animated progress-animated bg-success" role="progressbar" [ngStyle]="{ 'width': balances.pct_spending + '%'}"></div>
+                                <div class="progress-bar wow animated progress-animated today-border" role="progressbar" [ngStyle]="{ 'width': balances.today_pct - balances.pct_spending + '%'}" style="background-color: #e9ecef;"></div>
+                            </ng-template>
+                        </div>
+                        <div class="text-uppercase text-center m-t-10">Today</div>
+                    </div>
+                    <div class="col-md-1 vm mobile">
+                        <span class="font-bold font-20">${{totalLeft | number}}</span><br>
+                        <span class="font-14 text-uppercase">Left</span>
+                    </div>
+                    <div class="col-md-1 vm mobile">
+                        <span>{{balances.pct_spending}}%</span>
+                    </div>
+                </div>           
+            </div>
+        </div>
+        <div *ngIf="budgets">
+            <div *ngFor="let everybudget of budgets">
+                <div class="bg-default text-center text-uppercase font-16">{{everybudget.type}}</div>
+                <div class="card">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-1 card-content text-right">
+                                <div class="text-right">Monitor</div>
+                                <label class="switch">
+                                  <input type="checkbox" [checked]="everybudget.active_monitor">
+                                  <span class="slider"></span>
+                                </label>
+                            </div>
+                            <div class="col-md-1 text-right font-bold font-18 vm">
+                                <span>{{everybudget.type}}</span>
+                            </div>
+                            <div class="col-md-8">
+                                <span class="pull-right font-bold">${{everybudget.budget_spending | number}} <span class="font-italic">of</span> ${{everybudget.budget_spending + everybudget.left | number}}</span>
+                                <div class="progress m-t-30">
+                                    <div *ngIf="((everybudget.left + everybudget.budget_spending) / balances.budget * 100) - everybudget.today_pct > 0; then defaultEveryProBar else elseEveryProBar">
+                                    </div>
+                                    <ng-template #defaultEveryProBar>
+                                        <div class="progress-bar wow animated progress-animated bg-danger today-border" role="progressbar" [ngStyle]="{ 'width': everybudget.today_pct + '%'}"></div>
+                                        <div class="progress-bar wow animated progress-animated bg-danger" role="progressbar" [ngStyle]="{ 'width': ((everybudget.left + everybudget.budget_spending) / balances.budget * 100) - everybudget.today_pct + '%'}"></div>
+                                    </ng-template>
+                                    <ng-template #elseEveryProBar>
+                                        <div class="progress-bar wow animated progress-animated bg-success" role="progressbar" [ngStyle]="{ 'width': ((everybudget.left + everybudget.budget_spending) / balances.budget * 100) + '%'}">
+                                        </div>
+                                        <div class="progress-bar today-border" role="progressbar" [ngStyle]="{ 'width': everybudget.today_pct - ((everybudget.left + everybudget.budget_spending) / balances.budget * 100) + '%'}" style="background-color: #e9ecef;"></div>
+                                    </ng-template>
+                                </div>
+                            </div>
+                            <div class="col-md-1 vm mobile">
+                                <div class="pull-left dollar">$</div>
+                                <div class="touchspin">
+                                    <input class="form-control" type="number" name="everyBudgetLeft" [(ngModel)]="everybudget.left" #everyBudgetLeft="ngModel" (blur)="updateLeftVaule($event.target.value, budgetData.budget_id, everybudget.type)"/>
+                                </div>                             
+                                <span class="font-14 text-uppercase">Left</span>
+                            </div>
+                            <div class="col-md-1 vm mobile">
+                                <span>{{(everybudget.left + everybudget.budget_spending) / balances.budget * 100 | number}}%</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>             
+        </div>
+    </div>
+</div>

@@ -1,0 +1,73 @@
+<div class="row">
+  <!-- column -->
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-body c-b-all">
+                <div class="row">
+                    <div class="col-md-2 text-center text-primary">Get started</div>
+                    <div class="col-md-2 col-half-offset text-center text-primary">Select a goal</div>
+                    <div class="col-md-2 col-half-offset text-center">Review goal</div>
+                    <div class="col-md-2 col-half-offset text-center">Save your goal</div>
+                    <div class="col-md-2 col-half-offset text-center">Set up account</div>
+                </div>
+                <div class="m-t-30">
+                    <div class="progress">
+                        <div class="progress-bar bg-primary wow animated progress-animated" style="width: 20%; height:6px;" role="progressbar"> <span class="sr-only">20% Complete</span> </div>
+                    </div>
+                </div>
+                <div class="row m-t-40 p-t-30">
+                   <div class="col-md-6 text-center">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="default-theme p-30" [class.selected]="expressStats" (click)="selectExpress()">
+                                    <div class="label">
+                                        <i class="mdi mdi-poll text-primary"></i>
+                                    </div>
+                                    <div class="p-t-20">
+                                        <h2>Auto Recomendation</h2>
+                                    </div>
+                                    <div class="p-t-20">
+                                        <p>
+                                            View our recommended portfolio <br>based on your age.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 text-center">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="default-theme p-30" [class.selected]="standardStats" (click)="selectStandard()">
+                                    <div class="label">
+                                        <i class="fa fa-life-ring text-primary"></i>
+                                    </div>
+                                   <div class="p-t-20">
+                                        <h2>Customized</h2>
+                                    </div>
+                                    <div class="p-t-20">
+                                        <p>
+                                            Start from scratch investing plan <br>based on your own selection.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </div>
+ 
+                </div>
+                <div class="row">
+                    <div class="col-md-3"></div>
+                    <div class="col-md-3 m-t-10 p-l-120">
+                        <button class="btn btn-block btn-outline-primary">Back</button>
+                    </div>
+                    <div class="col-md-3 m-t-10 p-r-120">
+                        <button [disabled]="btn_status" (click)="continue()" class="btn btn-block btn-outline-primary">Continue</button>                        
+                    </div>
+                    <div class="col-md-4"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

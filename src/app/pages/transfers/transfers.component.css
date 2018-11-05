@@ -1,0 +1,7 @@
+.i-b {
+	display: inline-block;
+}
+.i-t {
+	display: inline-block;
+	vertical-align: text-bottom;
+}

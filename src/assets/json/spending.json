@@ -1,0 +1,81 @@
+{
+        "series" : [
+          {
+            "name": "Spending-Chart",
+            "type": "pie",
+            "radius": [20,"50%"],
+            "center" : ["60%", "50%"],
+            "roseType": "radius", 
+            "data": [
+              {
+                "value":40,
+                "name":"HOME",
+                "itemStyle": {
+                    "normal": {
+                        "color": "#ffe8a0"
+                    }
+                }
+              },
+              {
+                "value":30,
+                "name":"TRAVEL",
+                "itemStyle": {
+                    "normal": {
+                        "color": "#9d8373"
+                    }
+                }
+              },
+              {
+                "value":35,
+                "name":"AUTO & TRANSPORT",
+                "itemStyle": {
+                    "normal": {
+                        "color": "#7fde95"
+                    }
+                }
+              },
+              {
+                "value":20,
+                "name":"FOOD & DINNING",
+                "itemStyle": {
+                    "normal": {
+                        "color": "#007ee5"
+                    }
+                }
+              },
+              {
+                "value":25,
+                "name":"HEALTH & FITNESS",
+                "itemStyle": {
+                    "normal": {
+                        "color": "#a191ff"
+                    }
+                }
+              },
+              {
+                "value":15,
+                "name":"OTHERS",
+                "itemStyle": {
+                    "normal": {
+                        "color": "#f79c82"
+                    }
+                }
+              }
+            ],
+            "label": {
+                "normal": {
+                    "textStyle": {
+                        "color": "#6b7277"
+                    }
+                }
+            },
+            "labelLine": {
+                "normal": {
+                    "lineStyle": {
+                        "color": "#6b7277"
+                    }
+                }
+            }
+          }
+        ]
+    }

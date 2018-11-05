@@ -1,0 +1,385 @@
+<div class="row">
+    <div class="col-md-12">
+        <div class="card">
+        	<div class="card-body">
+                <div class="row">
+                	<div class="col-md-3">
+                		<select class="selectpicker m-b-20 m-r-10" data-style="btn-primary btn-outline-primary">
+                            <option data-tokens="ketchup mustard">Build Wealth</option>
+                            <option data-tokens="mustard">Burger, Shake and a Smile</option>
+                            <option data-tokens="frosting">Sugar, Spice and all things nice</option>
+                        </select>
+                	</div>
+                	<div class="col-md-2">
+                		<div class="text-uppercase font-14">Balance</div>
+                        <h2>$4,528.63</h2>
+                	</div>
+                    <div class="col-md-2">
+                        <div class="text-uppercase font-14">Target</div>
+                        <h2 class="text-primary">Add target</h2>
+                    </div>
+                	<div class="col-md-2">
+                		
+                	</div>
+                	<div class="col-md-3">
+                		<button class="btn btn-outline-primary pull-right">Reset</button>
+                        <button class="btn btn-outline-primary m-r-10 pull-right">Set</button>
+                	</div>
+                </div>
+                <div class="row">
+                    <div class="col-md-3 p-t-20 p-r-30">
+                        <div class="p-r-30 allocation">
+                            <span class="text-uppercase">Allocation</span>
+                            <span class="pull-right">90% Stocks</span>
+                        </div>
+                        <div class="p-r-30 p-t-20 p-b-20 allocation">
+                            <mat-slider
+                                color="primary"
+                                [max]="max1"
+                                [min]="min1"
+                                [step]="step1"
+                                [value]="value1">
+                            </mat-slider>
+                            <span class="font-14 pull-left">Bonds</span>
+                            <span class="font-14 pull-right">Stocks</span>
+                        </div>
+                    </div>
+                    <div class="col-md-3 p-t-20">
+                        <div class="text-uppercase">Monthly Auto Deposit</div>
+                        <div class="p-t-20">
+                            <div class="pull-left p-r-10">$</div>
+                            <div class="spinbox pull-left" data-min="1,500" data-max="2,000" data-step="2">
+                                <input class="form-control spinbox-input" type="text" value="1,500">
+                                <div class="spinbox-buttons">
+                                    <button class="spinbox-up btn btn-default btn-xs" type="button"><i class="fa fa-caret-up"></i></button>
+                                    <button class="spinbox-down btn btn-default btn-xs" type="button"><i class="fa fa-caret-down"></i></button>
+                                </div>
+                            </div>
+                            <div>
+                                <i class="fa fa-times-circle p-l-10"></i>
+                            </div>
+                        </div>
+                        <div class="p-t-20 p-b-10">
+                            <h6>$200.01 current</h6>
+                        </div>
+                    </div>
+                    <div class="col-md-3 p-t-20 p-b-20">
+                        <div class="text-uppercase">One-time Deposit</div>
+                        <div class="p-t-20">
+                            <div class="pull-left p-r-10">$</div>
+                            <div class="spinbox pull-left" data-min="1,500" data-max="2,000" data-step="2">
+                                <input class="form-control spinbox-input text-left" type="text" value="">
+                                <div class="spinbox-buttons">
+                                    <button class="spinbox-up btn btn-default btn-xs" type="button"><i class="fa fa-caret-up"></i></button>
+                                    <button class="spinbox-down btn btn-default btn-xs" type="button"><i class="fa fa-caret-down"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 p-t-20 p-r-30">
+                        <div class="p-r-30">
+                            <span class="text-uppercase">Time</span>
+                            <span class="pull-right">20 years</span>
+                        </div>
+                        <div class="p-r-30 p-t-20 p-b-20">
+                            <mat-slider
+                                color="primary"
+                                [max]="max2"
+                                [min]="min2"
+                                [step]="step2"
+                                [value]="value2">
+                            </mat-slider>
+                            <span class="font-14 pull-left">1</span>
+                            <span class="font-14 h-center">years</span>
+                            <span class="font-14 pull-right">50</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="row m-t-30">
+                    <div class="col-md-3">
+                        <div>
+                            Risk
+                            <div>
+                              <span class="text-primary">Moderate</span>&nbsp;&nbsp;&nbsp;
+                              <i class="mdi mdi-help-circle"></i>
+                            </div>
+                            <div id="donut-chart"></div>
+                        </div>
+                        <div class="m-t-30 m-r-20 m-b-40 text-primary text-center">See current holdings</div>
+                        <div class="m-r-20 p-t-30 p-b-30 b-t">
+                            <div class="font-16 text-uppercase">Planning Tools</div>
+                            <div class="p-t-10 vm">
+                                <i class="ti ti-envelope"></i>
+                                <span class="p-l-10">Why goal-based investing?</span>
+                            </div>
+                        </div>
+                        <div class="m-r-20 p-t-30 p-b-30 b-t">
+                            <div class="font-16 text-uppercase">Financial Advice</div>
+                            <div class="p-t-10 vm">
+                                <i class="ti ti-envelope"></i>
+                                <span class="p-l-10">Why this stock allocation?</span>
+                            </div>
+                        </div>
+                        <div class="m-r-20 p-t-30 p-b-30 b-b b-t">
+                            <div class="font-16 text-uppercase">Planning Tools</div>
+                            <div class="p-t-10 vm">
+                                <i class="ti ti-envelope"></i>
+                                <span class="p-l-10">About our projections</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-9 p-t-30">
+                        <ul class="nav nav-tabs" role="tablist">
+                            <li class="nav-item"> <a class="nav-link active" data-toggle="tab" href="#performance" role="tab"><span class="hidden-sm-up"><i class="ti-home"></i></span> <span class="hidden-xs-down">Projected Performance</span></a> </li>
+                            <li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#detail" role="tab"><span class="hidden-sm-up"><i class="ti-user"></i></span> <span class="hidden-xs-down">Details</span></a> </li>
+                            <li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#cost" role="tab"><span class="hidden-sm-up"><i class="ti-email"></i></span> <span class="hidden-xs-down">Your Costs</span></a> </li>
+                        </ul>
+                        <div class="tab-content">
+                            <div class="tab-pane active" id="performance" role="tabpanel">
+                                <div class="vtabs customvtab">
+                                        <ul class="nav nav-tabs tabs-vertical" role="tablist">
+                                            <li class="nav-item c-b-all p-t-20 p-b-20 p-l-10">
+                                                <div class="input-group">
+                                                    <span class="input-group-addon bg-white b-0"><i class="ti-search"></i></span>
+                                                    <input class="form-control b-0" placeholder="Search by stock or market name">
+                                                </div>
+                                            </li>
+                                            <li class="nav-item c-b-all"> 
+                                                <a class="nav-link" data-toggle="tab" href="#sparkline" role="tab">
+                                                    <div class="row">
+                                                        <div class="vm">
+                                                            <span style="word-wrap: normal;">AAPL</span>
+                                                            <h6 style="word-wrap: normal;">120 Stocks</h6>
+                                                        </div>
+                                                        <div class="vm image-item">
+                                                            <img class="nav-c-item" src="./assets/images/chart/1.png">
+                                                        </div>
+                                                        <div class="vm">
+                                                            <span class="nav-r-item bg-success font-14" style="word-wrap: normal;">$105.67</span>
+                                                        </div>
+                                                    </div>
+                                                </a> 
+                                            </li>
+                                            <li class="nav-item c-b-all"> 
+                                                <a class="nav-link" data-toggle="tab" href="#sparkline" role="tab">
+                                                    <div class="row">
+                                                        <div class="vm">
+                                                            <span style="word-wrap: normal;">FB</span>
+                                                            <h6 style="word-wrap: normal;">120 Stocks</h6>
+                                                        </div>
+                                                        <div class="vm image-item">
+                                                            <img class="nav-c-item" src="./assets/images/chart/2.png">
+                                                        </div>
+                                                        <div class="vm">
+                                                            <span class="nav-r-item bg-success font-14" style="word-wrap: normal;">$105.67</span>
+                                                        </div>
+                                                    </div>
+                                                </a> 
+                                            </li>
+                                            <li class="nav-item c-b-all"> 
+                                                <a class="nav-link" data-toggle="tab" href="#sparkline" role="tab">
+                                                    <div class="row">
+                                                        <div class="vm">
+                                                            <span style="word-wrap: normal;">TWTR</span>
+                                                            <h6 style="word-wrap: normal;">120 Stocks</h6>
+                                                        </div>
+                                                        <div class="vm image-item">
+                                                            <img class="nav-c-item" src="./assets/images/chart/3.png">
+                                                        </div>
+                                                        <div class="vm">
+                                                            <span class="nav-r-item bg-danger font-14" style="word-wrap: normal;">$105.67</span>
+                                                        </div>
+                                                    </div>
+                                                </a> 
+                                            </li>
+                                            <li class="nav-item c-b-all"> 
+                                                <a class="nav-link" data-toggle="tab" href="#sparkline" role="tab">
+                                                    <div class="row">
+                                                        <div class="vm">
+                                                            <span style="word-wrap: normal;">TSLA</span>
+                                                            <h6 style="word-wrap: normal;">120 Stocks</h6>
+                                                        </div>
+                                                        <div class="vm image-item">
+                                                            <img class="nav-c-item" src="./assets/images/chart/4.png">
+                                                        </div>
+                                                        <div class="vm">
+                                                            <span class="nav-r-item bg-success font-14" style="word-wrap: normal;">$105.67</span>
+                                                        </div>
+                                                    </div>
+                                                </a> 
+                                            </li>
+                                            <li class="nav-item c-b-all"> 
+                                                <a class="nav-link" data-toggle="tab" href="#sparkline" role="tab">
+                                                    <div class="row">
+                                                        <div class="vm">
+                                                            <span style="word-wrap: normal;">NFLX</span>
+                                                            <h6 style="word-wrap: normal;">120 Stocks</h6>
+                                                        </div>
+                                                        <div class="vm image-item">
+                                                            <img class="nav-c-item" src="./assets/images/chart/5.png">
+                                                        </div>
+                                                        <div class="vm">
+                                                            <span class="nav-r-item bg-danger font-14" style="word-wrap: normal;">$105.67</span>
+                                                        </div>
+                                                    </div>
+                                                </a> 
+                                            </li>
+                                            <li class="nav-item c-b-all"> 
+                                                <a class="nav-link" data-toggle="tab" href="#sparkline" role="tab">
+                                                    <div class="row">
+                                                        <div class="vm">
+                                                            <span>F</span>
+                                                            <h6 style="word-wrap: normal;">120 Stocks</h6>
+                                                        </div>
+                                                        <div class="vm image-item">
+                                                            <img class="nav-c-item" src="./assets/images/chart/6.png">
+                                                        </div>
+                                                        <div class="vm">
+                                                            <span class="nav-r-item bg-danger font-14" style="word-wrap: normal;">$105.67</span>
+                                                        </div>
+                                                    </div>
+                                                </a> 
+                                            </li>
+                                            <li class="nav-item c-b-all"> 
+                                                <a class="nav-link" data-toggle="tab" href="#sparkline" role="tab">
+                                                    <div class="row">
+                                                        <div class="vm">
+                                                            <span style="word-wrap: normal;">DLS</span>
+                                                            <h6 style="word-wrap: normal;">120 Stocks</h6>
+                                                        </div>
+                                                        <div class="vm image-item">
+                                                            <img class="nav-c-item" src="./assets/images/chart/7.png">
+                                                        </div>
+                                                        <div class="vm">
+                                                            <span class="nav-r-item bg-success font-14" style="word-wrap: normal;">$105.67</span>
+                                                        </div>
+                                                    </div>
+                                                </a> 
+                                            </li>
+                                            <li class="nav-item c-b-all"> 
+                                                <a class="nav-link" data-toggle="tab" href="#sparkline" role="tab">
+                                                    <div class="row">
+                                                        <div class="vm">
+                                                            <span style="word-wrap: normal;">GPRO</span>
+                                                            <h6 style="word-wrap: normal;">120 Stocks</h6>
+                                                        </div>
+                                                        <div class="vm image-item">
+                                                            <img class="nav-c-item" src="./assets/images/chart/8.png">
+                                                        </div>
+                                                        <div class="vm">
+                                                            <span class="nav-r-item bg-success font-14" style="word-wrap: normal;">$105.67</span>
+                                                        </div>
+                                                    </div>
+                                                </a> 
+                                            </li>
+                                            <li class="nav-item c-b-all"> 
+                                                <a class="nav-link" data-toggle="tab" href="#sparkline" role="tab">
+                                                    <div class="row">
+                                                        <div class="vm">
+                                                            <span style="word-wrap: normal;">FIT</span>
+                                                            <h6 style="word-wrap: normal;">120 Stocks</h6>
+                                                        </div>
+                                                        <div class="vm image-item">
+                                                            <img class="nav-c-item" src="./assets/images/chart/9.png">
+                                                        </div>
+                                                        <div class="vm">
+                                                            <span class="nav-r-item bg-success font-14" style="word-wrap: normal;">$105.67</span>
+                                                        </div>
+                                                    </div>
+                                                </a> 
+                                            </li>
+                                            <li class="nav-item c-b-all"> 
+                                                <a class="nav-link" data-toggle="tab" href="#sparkline" role="tab">
+                                                    <div class="row">
+                                                        <div class="vm">
+                                                            <span style="word-wrap: normal;">BABA</span>
+                                                            <h6 style="word-wrap: normal;">120 Stocks</h6>
+                                                        </div>
+                                                        <div class="vm image-item">
+                                                            <img class="nav-c-item" src="./assets/images/chart/10.png">
+                                                        </div>
+                                                        <div class="vm">
+                                                            <span class="nav-r-item bg-danger font-14" style="word-wrap: normal;">$105.67</span>
+                                                        </div>
+                                                    </div>
+                                                </a> 
+                                            </li>
+                                        </ul>
+                                    <!-- Tab panes -->
+                                    <div class="tab-content">
+                                        <div class="tab-pane active" id="sparkline" role="tabpanel">
+                                            <div class="row">
+                                                <div class="col-md-6 text-left">
+                                                    <h2>$227.75</h2>
+                                                    <p class="font-14">
+                                                        <span class="text-success">Stocks </span>
+                                                        <span class="text-uppercase">Today</span>
+                                                    </p>
+                                                    <p>Search by stock or name</p>
+                                                </div>
+                                                <div class="col-md-6 text-right">
+                                                    <p class="text-uppercase font-bold p-t-30">Tsla</p>
+                                                    <p class="font-14">Why goal-based investing?</p>
+                                                </div>
+                                            </div>
+                                            <div id="spark-chart"></div>
+                                            <div class="row m-t-40">
+                                                <div class="col-md-6">
+                                                    <p class="font-bold">Stats</p>
+                                                    <div class="table-responsive">
+                                                        <table class="table font-14">
+                                                            <tbody>
+                                                                <tr>
+                                                                    <td>Deshmukh</td>
+                                                                    <td class="font-bold">Prohaska</td>
+                                                                    <td>@Genelia</td>
+                                                                    <td class="font-bold">admin</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>Deshmukh</td>
+                                                                    <td class="font-bold">Gaylord</td>
+                                                                    <td>@Ritesh</td>
+                                                                    <td class="font-bold">member</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>Sanghani</td>
+                                                                    <td class="font-bold">Gusikowski</td>
+                                                                    <td>@Govinda</td>
+                                                                    <td class="font-bold">developer</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>Roshan</td>
+                                                                    <td class="font-bold">Rogahn</td>
+                                                                    <td>@Hritik</td>
+                                                                    <td class="font-bold">supporter</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>Joshi</td>
+                                                                    <td class="font-bold">Hickle</td>
+                                                                    <td>@Maruti</td>
+                                                                    <td class="font-bold">member</td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <p class="font-bold">About</p>
+                                                    <p class="font-14">adjfiaeofjqoiejfakdjfkd faidfja df af a9idfjadfja fa df adfaojdfjad fad faidfa df a dfaudfua dfaidhfahdf ahkdfhakdhfak dfiahdf adifha odfh adifhao dfauhdfoa dfha odfh aodfhaiudhf aduhf adfh aduhf auhdf auhf uadhf auf</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab-pane" id="detail" role="tabpanel">
+                                <div id="area-chart"></div>
+                            </div>
+                            <div class="tab-pane p-20" id="cost" role="tabpanel"></div>
+                        </div>
+                    </div>
+                </div>
+        	</div>
+        </div>
+    </div>
+</div>

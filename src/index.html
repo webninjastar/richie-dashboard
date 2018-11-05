@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <base href="./">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <title>Admin Pro Admin Template - The Ultimate Bootstrap 4 Admin Template</title>
+  <link rel="icon" type="image/png" href="assets/images/favicon.png">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
+  <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hammer.js/2.0.8/hammer.min.js"></script>
+  <script src="https://www.gstatic.com/charts/loader.js"></script>
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="http://www.jqwidgets.com/public/jqwidgets/styles/jqx.base.css" type="text/css" /> 
+  <link rel="stylesheet" href="https://www.amcharts.com/lib/3/plugins/export/export.css" type="text/css" media="all" />
+  <!-- jQWidgets -->
+  <script src="http://www.jqwidgets.com/public/jqwidgets/jqxcore.js"></script>
+  <script src="http://www.jqwidgets.com/public/jqwidgets/jqxdata.js"></script>
+  <script src="http://www.jqwidgets.com/public/jqwidgets/jqxdraw.js"></script>
+  <script src="http://www.jqwidgets.com/public/jqwidgets/jqxchart.core.js"></script>
+
+  <!-- Amcharts -->
+  <script src="https://www.amcharts.com/lib/3/amcharts.js"></script>
+  <script src="https://www.amcharts.com/lib/3/pie.js"></script>
+  <script src="https://www.amcharts.com/lib/3/serial.js"></script>
+  <script src="https://www.amcharts.com/lib/3/plugins/export/export.min.js"></script>
+  <script src="https://www.amcharts.com/lib/3/themes/light.js"></script>
+  
+  <script type="text/javascript">  
+      // !important: You want to give this variable(var googleLoaded = false;). This is used to run multiple chart in your jade.
+      var googleLoaded = false;
+      // !important: Define which chart packages to preload.Because this package uses ChartWrappers you can use any chart type that Google supports, but if it // isn't loaded it will load it on demand. 
+      var googleChartsPackagesToLoad = ['geochart'];
+  </script>
+</head>
+
+<body class="fix-header card-no-border fix-sidebar">
+    <!-- ============================================================== -->
+    <!-- Preloader - style you can find in spinners.css -->
+    <!-- ============================================================== -->
+    <div class="preloader">
+        <div class="loader">
+            <div class="loader__figure"></div>
+            <p class="loader__label">Admin Pro</p>
+        </div>
+    </div>
+    <app-root></app-root>
+</body>
+
+</html>

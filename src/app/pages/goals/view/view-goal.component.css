@@ -1,0 +1,153 @@
+.c-b-all {
+	border: 1px solid #e1e5eb;
+}
+.linea-icon {
+	transform: translateY(100%);
+}
+.v-center {
+	transform: translateY(40%);
+}
+mat-slider {
+	width: 100%;
+}
+.h-center {
+	position: relative;
+	left: 43%;
+}
+.spinbox {
+	max-width: 210px;
+	position: relative;
+	padding-right: 20px;
+}
+.spinbox .spinbox-input {
+	min-width: 40px;
+	padding-left: 4px;
+	padding-right: 4px;
+}
+.spinbox .spinbox-buttons {
+	text-align: center;
+	position: absolute;
+	right: 0;
+	top: 0;
+	height: 100%;
+	width: 20px;
+}
+.spinbox .spinbox-buttons .spinbox-up {
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 50%;
+  width: 100%;
+  border-left: none;
+  line-height: 1;
+}
+.spinbox .spinbox-buttons .spinbox-down {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  height: 50%;
+  width: 100%;
+  border-left: none;
+  line-height: 1;
+}
+.vtabs .tabs-vertical {
+	width: 270px;
+	display: block;
+}
+.nav-r-item {
+    padding: 5px 15px;
+    border-radius: 5px;
+}
+.vtabs .tabs-vertical li .nav-link {
+	padding-bottom: 0px;
+}
+.nav-c-item {
+	position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+}
+.form-control {
+	font-size: 13px;
+}
+.ti-envelope {
+	position: relative;
+	top: 2px;
+}
+.vtabs .tab-content {
+	padding: 15px;
+}
+.image-item {
+	margin-top: 30px;
+}
+#donut-chart {
+  width: 100%;
+  height: 300px;
+  font-size: 11px;
+}
+#spark-chart {
+	width: 100%;
+	height: 150px;
+	font-size: 11px;
+}
+#area-chart {
+	width: 100%;
+	height: 600px;
+	font-size: 11px;
+}
+.amcharts-pie-slice {
+  transform: scale(1);
+  transform-origin: 50% 50%;
+  transition-duration: 0.3s;
+  transition: all .3s ease-out;
+  -webkit-transition: all .3s ease-out;
+  -moz-transition: all .3s ease-out;
+  -o-transition: all .3s ease-out;
+  cursor: pointer;
+  box-shadow: 0 0 30px 0 #000;
+}
+
+.amcharts-pie-slice:hover {
+  transform: scale(1.1);
+  filter: url(#shadow);
+}
+@media screen and (min-width: 960px) {
+	.allocation {
+		padding-left: 30px;
+	}
+}
+@media screen and (max-width: 480px) {
+	.vtabs .tabs-vertical {
+		width: 100%;
+	}
+	.vtabs .tab-content {
+		display: inline;
+	}
+	.col-sm-4 {
+		width: auto;
+	}
+	.image-item {
+		padding-left: 0px;
+		padding-right: 0px;
+	}
+	.nav-r-item {
+		padding: 5px 10px;
+	}
+	.col-md-4 {
+		height: 90px;
+	}
+	.donut-chart {
+		margin-left: 40px;
+	}
+	::-webkit-input-placeholder { /* WebKit browsers */
+        color: transparent;
+    }
+    :-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+       color: transparent;
+    }
+    ::-moz-placeholder { /* Mozilla Firefox 19+ */
+       color: transparent;
+    }
+    :-ms-input-placeholder { /* Internet Explorer 10+ */
+       color: transparent;
+    }
+}

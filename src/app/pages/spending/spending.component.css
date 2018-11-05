@@ -1,0 +1,61 @@
+h1 {
+	margin-bottom: 0px;
+}
+.may {
+	padding-top: 45px;
+}
+.pie-chart {
+  height: 300px;
+}
+.mdi-bell,
+.mdi-alert {
+	padding: 5px 8.5px;
+    display: inline-block;
+    -moz-border-radius: 100px;
+    -webkit-border-radius: 100px;
+    border-radius: 100px;
+}
+.fa-question-circle {
+	padding: 9px 10px;
+    display: inline-block;
+    -moz-border-radius: 100px;
+    -webkit-border-radius: 100px;
+    border-radius: 100px;
+}
+.i-t {
+	display: inline-block;
+	vertical-align: middle;
+}
+.font-56 {
+	font-size: 56px;
+}
+.progress-bar {
+    border-right: solid 1px #686c73;
+}
+.progress-bar:last-child {
+    border: none; 
+}
+.b-t {
+	border-top: 1px solid #d6d6d6;
+}
+.i-t-t {
+	color: #434343;
+}
+.i-t-c {
+	color: #9d9d9d;
+}
+.i-i {
+	width: auto;
+}
+@media screen and (max-width: 480px) {
+	.may {
+		padding-top: 125px;
+	}
+	.p-c {
+		position: relative;
+		top: -70%;
+	}
+	.i-m {
+		margin-top: 120px;
+	}
+}
